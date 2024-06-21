@@ -44,14 +44,14 @@ async function getReadme (url2,url,token,user){
     const request = await getRequest(url,token)
     
     const latestRepository= await latestRepo(url2,token,user)
-    //console.log(lastestRepository)
+    //console.log(latestRepository)
     const content64 = await request["content"]
     // Get the sha from the file 
     //const sha = await request["sha"]
     //console.log("The sha", sha)
     // Base64 to UTF-8
     let contentUTF = Buffer.from(content64, 'base64').toString('utf-8'); 
-    // Replace the lastest project
+    // Replace the latest project
     const recherche = /(<h3>My latest project : .*?<\/h3>)/g;
     //const found = contentUTF.match(recherche);
     const replaceSentence = `<h3>My latest project : ${latestRepository}</h3>`;
@@ -114,5 +114,5 @@ modifyReadme(url,url2,token,user)
 
 
 
-//lastestRepo()
+
 
