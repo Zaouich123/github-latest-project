@@ -1,1 +1,1 @@
-# github-lastest-activity
+# github-latest-project
