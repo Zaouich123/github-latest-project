@@ -95,7 +95,7 @@ async function modifyReadme(url,url2,token,user){
 
             }
             })
-            //console.log(await response.json())
+            console.log(await response.json())
 
             //return await response.json()
     }
