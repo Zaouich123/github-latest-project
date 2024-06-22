@@ -7,7 +7,6 @@ const token = process.env.TOKEN; // Api token
 
 
 
-
 // 
 async function getRequest(url,token){
     try{
@@ -106,7 +105,14 @@ async function modifyReadme(url,url2,token,user){
 
 
 
+
+
+
+
 modifyReadme(url,url2,token,user)
+setInterval(() => {
+    modifyReadme(url,url2,token,user)
+}, 86400000);
 
 
 
