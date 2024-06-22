@@ -22,7 +22,7 @@ jobs :
 
         - name: execute main.js
           env:
-            TOKEN: ${{ secrets.token }}
+            TOKEN: ${{ secrets.GITHUB_TOKEN }}
           run : node ./main.js
 
 
