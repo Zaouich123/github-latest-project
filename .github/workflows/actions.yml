@@ -2,6 +2,7 @@ name: "run main.js"
 on : 
     schedule:
     - cron: "25 17 * * *"
+    workflow_dispatch:
 jobs : 
     build :
         runs-on : ubuntu-latest
