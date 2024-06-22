@@ -16,7 +16,7 @@ jobs :
         - name: Install dependencies
           run: npm install
         - name: execute main.js
-          run : node main.js
+          run : ./main.js
 
 
 
