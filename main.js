@@ -23,20 +23,26 @@ async function getRequest(url,token){
     }
 }
 
+function mostRecentDate(json,user){
+    let bestdate='1999-06-07T13:52:30Z'
+    let bestjson=null;
+    json.forEach(element => {
+        if(element["created_at"] > bestdate && element["html_url"]!== `https://github.com/${user}/${user}`){
+            bestdate=element["created_at"]
+            bestjson=element
+        }
+    });
+    //console.log("best",bestjson)
+    return bestjson
+}
+
 //Found the latest repository from your github
 async function latestRepo(url,token,user){
     const json = await getRequest(url,token)
-    let lastRepo = null
-    //const json = await request.json()
-    //console.log(json)
-    for(i=0; i<json.length ; i++){
-        if(json[i]["html_url"] !== `https://github.com/${user}/${user}`){
-            lastRepo = json[i]["html_url"]
-            return lastRepo
-        }
-    }
-    return lastRepo
+    let lastRepo = mostRecentDate(json,user)
+    return lastRepo["html_url"]
 }
+
 
 async function getReadme (url2,url,token,user){
     //
@@ -94,7 +100,7 @@ async function modifyReadme(url,url2,token,user){
 
             }
             })
-            console.log(await response.json())
+            //console.log(await response.json())
 
             //return await response.json()
     }
