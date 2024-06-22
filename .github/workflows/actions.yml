@@ -20,8 +20,10 @@ jobs :
         - name: add execute main.js
           run : chmod +x ./main.js
 
-
-        - run : node ./main.js
+        - name: execute main.js
+          env:
+            TOKEN: ${{ secrets.TOKEN }}
+          run : node ./main.js
 
 
 
