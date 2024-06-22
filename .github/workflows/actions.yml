@@ -16,7 +16,7 @@ jobs :
         - name: Install dependencies
           run: npm install
         - name: execute main.js
-          run : ./main.js
+          run : chmod +x ./main.js
 
 
 
